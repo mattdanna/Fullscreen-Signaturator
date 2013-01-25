@@ -1,0 +1,79 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+body {
+    padding:100px;
+    max-width:600px;
+}
+.btn-holder {
+    text-align:center;
+}
+.btn-holder button {
+    width:18em;
+}
+.control-label input {
+    position:relative;
+    top:-3px;
+}
+.fake-textarea {
+    background-color: white;
+    border: 1px solid #CCC;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.fake-textarea:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: 0;
+    outline: thin dotted 9;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+label.error {
+    color:#B94A48;
+    font-size:12px;
+    display: inline-block;
+    margin-left: 5px;
+}
+#outoutPreviewCopy, #outputFieldTextCopy, #outputFieldHTMLCopy {
+    display:inline-block;
+}
+
+#outoutPreview, #outputFieldText, #outputFieldHTML {
+    width:516px;
+}
+
+#output p{
+    margin-bottom:25px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
