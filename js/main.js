@@ -2,6 +2,7 @@
 var name = "";
 var position = "";
 var twitter = "";
+var youtube = "";
 var phone = "";
 var address = "9336 Washington Blvd, Building K \n" +
     "Culver City, CA 90232 \n" +
@@ -62,6 +63,7 @@ function fetchInputs() {
     name = $('#inputName').val();
     position = $('#inputPosition').val();
     twitter = $('#inputTwitter').val();
+    youtube = $('#inputYouTube').val();
     phone = $('#inputPhone').val();
     address = $('#inputAddress').val();
 
@@ -82,21 +84,21 @@ function generateHTMLOutput() {
                     '<td >' + 
                         '<table style="border:0;border-spacing:0;height:10px;width:18px;padding:0px;color:white;background-color:#000000;">' +
                             '<tr>' + 
-                                '<td colspan="3" height="4" width="18" style="height:4px;width:18px;"></td>' +
+                                '<td colspan="3" height="4" width="18" style="height:4px;width:18px;padding:0;"></td>' +
                            '</tr>' +
                             '<tr>' + 
-                                '<td height="5" width="1" style="height:5px;width:1px;"></td>' +
-                                '<td height="5" width="8" style="height:5px;width:8px;background-color:#fff;"></td>' +
-                                '<td height="5" width="9" style="height:5px;width:9px;"></td>' +
+                                '<td height="5" width="1" style="height:5px;width:1px;padding:0;"></td>' +
+                                '<td height="5" width="8" style="height:5px;width:8px;background-color:#fff;padding:0;"></td>' +
+                                '<td height="5" width="9" style="height:5px;width:9px;padding:0;"></td>' +
                             '</tr>' +
                             '<tr>' +
-                                '<td colspan="3" height="1" width="18" style="height:1px;width:18px;"></td>' +
+                                '<td colspan="3" height="1" width="18" style="height:1px;width:18px;padding:0;"></td>' +
                             '</tr>' +
                         '</table>' +
                      '</td>' +
                 '</tr>' +
                 '<tr>' +
-                    '<td style="color:rgb(10,10,10); font-size:14px; padding:15px 0 3px 0px; border-bottom:1px solid rgb(10,10,10);"><b>Matt Danna</b> &nbsp; <span style="letter-spacing:1px;font-size:10px;text-transform:uppercase;">Product Manager</span></td>' +
+                    '<td style="color:rgb(10,10,10); font-size:14px; padding:15px 0 3px 0px; border-bottom:1px solid rgb(10,10,10);"><b>' + name + '</b> &nbsp; <span style="letter-spacing:1px;font-size:10px;text-transform:uppercase;">' + position + '</span></td>' +
                 '</tr>' +
                 '<tr>' +
                     '<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0; font-size:12px; font-family: \'Helvetica Neue\', Helvetica, Arial, \'Lucida Grande\', sans-serif; margin:5px 0 0 10px; color:rgb(40,40,40)">' +
@@ -113,7 +115,7 @@ function generateHTMLOutput() {
                                 '@<a style="color:#398b96; text-decoration:none;" href="http://twitter.com/' + twitter + '">' + twitter + '</a>' +
                             '</td>' +
                             '<td style="padding:0 15px 3px 0;">' +
-                                'YouTube: <a style="color:#398b96; text-decoration:none;" href="http://youtube.com/user/mattdanna">mattdanna</a>' +
+                                'YouTube: <a style="color:#398b96; text-decoration:none;" href="http://youtube.com/user/' + youtube + '">' + youtube + '</a>' +
                             '</td>' +
                         '</tr>' +
                     '</table>' +
