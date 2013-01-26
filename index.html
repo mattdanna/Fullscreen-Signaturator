@@ -64,17 +64,18 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPhone">Cell</label>
+                    <label class="control-label" for="inputPhone">Phone</label>
                     <div class="controls">
-                        <input type="text" class="input-medium phone" data-country="US" id="inputPhone">
+                        <input type="text" class="input-medium phone" data-country="US" id="inputPhone" value="(310) 202-3333">
+                        <span class="help-block">Fullscreen's main line is: (310) 202-3333</span>
                     </div>
                 </div>
-                <div class="control-group">
+<!--                 <div class="control-group">
                     <label class="control-label" for="inputPhone">Office Address*</label>
                     <div class="controls fake-textarea required" minlength="20"
                     contenteditable="true" id="inputAddress" rel="What's your Office's address?">9336 Washington Blvd, Building K, Culver City, CA 90232
                         <br/>(310) 202-3333</div>
-                </div>
+                </div> -->
                 <p class="btn-holder">
                     <button class="btn btn-large btn-primary" type="button" onClick="fetchInputs();"
                     data-toggle="modal" href="#myModal">Generate Signature</button>
@@ -92,20 +93,20 @@
                 <div id="output">
                     <p>
                         <h4>WYSIWYG (Gmail):</h4>
-                        <div class="fake-textarea" id="outputPreview" contenteditable="true" onClick="selectText('outputPreview')"></div>
-                        <div><button id="outputPreviewCopy" type="button" class="btn">Copy</button></div>
+                        <div class="fake-textarea" id="outputPreview" contenteditable="true"></div>
+                        <div id="outputPreviewCopy" data-clipboard-text="Copy Me!" class="btn">Copy</div>
                     </p>
                     <p>
                         <h4>Text (iPhone):</h4>
-                        <textarea id="outputFieldText" name="outputFieldText" rows="10" cols="80" onClick="javascript:this.form.outputFieldText.focus();this.form.outputFieldText.select();">
+                        <textarea id="outputFieldText" name="outputFieldText" rows="10" cols="80">
                         </textarea>
-                        <div><button id="outputFieldTextCopy" type="button" class="btn">Copy</button></div>
+                        <div><a id="outputFieldTextCopy" type="button" class="btn">Copy</a></div>
                     </p>
                     <p>
                         <h4>HTML (Thunderbird, Mail, etc.)</h4>
-                        <textarea id="outputFieldHTML" name="outputFieldHTML" rows="10" cols="80" onClick="javascript:this.form.outputFieldHTML.focus();this.form.outputFieldHTML.select();">
+                        <textarea id="outputFieldHTML" name="outputFieldHTML" rows="10" cols="80">
                         </textarea>
-                        <div><button id="outputFieldHTMLCopy" type="button" class="btn">Copy</button></div>
+                        <div><a id="outputFieldHTMLCopy" type="button" class="btn">Copy</a></div>
                     </p>
                 </p>
             </div>
@@ -122,10 +123,7 @@
         <script type="text/javascript" src="js/vendor/jquery.maskedinput.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery.validate.js"></script>
         <script type="text/javascript" src="js/vendor/ZeroClipboard.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery.zclip.min.js"></script>
-        <script>
-            ZeroClipboard.setMoviePath( 'js/vendor/ZeroClipboard10.swf' );
-        </script>
+        <!-- <script type="text/javascript" src="js/vendor/jquery.zclip.min.js"></script> -->
 
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
