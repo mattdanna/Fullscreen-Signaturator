@@ -12,7 +12,7 @@ body {
 .btn-holder {
     text-align:center;
 }
-.btn-holder button {
+.btn-holder input {
     width:18em;
 }
 .control-label input {
@@ -52,24 +52,49 @@ label.error {
     display: inline-block;
     margin-left: 5px;
 }
-#outoutPreviewCopy, #outputFieldTextCopy, #outputFieldHTMLCopy {
+
+input.error {
+    color: #b94a48;
+    border-color: #953b39;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+}
+
+#outputPreviewCopy, #outputFieldTextCopy, #outputFieldHTMLCopy {
     display:inline-block;
 }
 
-#outoutPreview, #outputFieldText, #outputFieldHTML {
-    width:516px;
+#outputPreview, #outputFieldText, #outputFieldHTML {
+    width:90%;
 }
 
-#output p{
-    margin-bottom:25px !important;
+#output .output-section{
+    margin-bottom:25px;
 }
 
 
+.controls .help-block{
+    margin:0px !important;
+    font-size:12px;
+}
 
+#outputPreview table, #outputPreview tr, #outputPreview td{
+    padding: 0;
+    margin: 0;
+    line-height:13px;
+}
 
+.confirm{
+    color:#468847;
+    padding-left:5px;
+    top: 1px;
+    position: relative;
+}
 
-
-
+#myModal .modal-body{
+    max-height:550px !important;
+}
 
 
 

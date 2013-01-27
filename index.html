@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Fullscreen Signaturator&#8482;</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -27,31 +27,30 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
-        <form class="form-horizontal" id="signaterator">
-            <legend><img src="img/SignateratorLogo.png" style="position:relative;top:-3px;padding-right:10px;"/><b>Fullscreen Signaterator&#8482;</b>
-
+        <form class="form-horizontal" id="signaturator" autocomplete="off">
+            <legend>
+                <img src="img/SignaturatorLogo.png" style="position:relative;top:-3px;padding-right:10px;"/> <b>Fullscreen Signaturator&#8482;</b>
             </legend>
-            <p>Leave the fields blank if you don't want to include them in your signature.</p>
-            <div
-            class="control-group">
+            <p>
+                Leave the fields blank if you don't want to include them in your signature.
+            </p>
+            <div class="control-group">
                 <label class="control-label" for="inputName">Name*</label>
                 <div class="controls">
-                    <input type="text" id="inputName" class="required" minlength="2" placeholder="Name">
+                    <input type="text" id="inputName" name="inputName" class="required" placeholder="Name">
                 </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputPosition ">Position*</label>
                     <div class="controls">
-                        <input type="text" id="inputPosition" class="required" minlength="2" placeholder="Position">
+                        <input type="text" id="inputPosition" name="inputPosition" class="required" placeholder="Position">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputTwitter">Twitter</label>
                     <div class="controls">
                         <div class="input-prepend"> <span class="add-on">@</span>
-                            <input class="span2" id="inputTwitter" type="text" placeholder="Username">
+                            <input class="span2" id="inputTwitter" name="inputTwitter" type="text" placeholder="Username">
                         </div>
                     </div>
                 </div>
@@ -59,59 +58,51 @@
                     <label class="control-label" for="inputYouTube">YouTube</label>
                     <div class="controls">
                         <div class="input-prepend"> <span class="add-on">youtube.com/user/</span>
-                            <input class="span2" id="inputYouTube" type="text" placeholder="Username">
+                            <input class="span2" id="inputYouTube" name="inputYouTube" type="text" placeholder="Username">
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPhone">Cell</label>
+                    <label class="control-label" for="inputPhone">Phone</label>
                     <div class="controls">
-                        <input type="text" class="input-medium phone" data-country="US" id="inputPhone">
+                        <input type="text" class="input-medium phone" data-country="US" id="inputPhone" name="inputPhone" value="(310) 202-3333">
+                        <span class="help-block">Fullscreen's main line is: (310) 202-3333</span>
                     </div>
                 </div>
-                <div class="control-group">
-                    <label class="control-label" for="inputPhone">Office Address*</label>
-                    <div class="controls fake-textarea required" minlength="20"
-                    contenteditable="true" id="inputAddress" rel="What's your Office's address?">9336 Washington Blvd, Building K, Culver City, CA 90232
-                        <br/>(310) 202-3333</div>
-                </div>
                 <p class="btn-holder">
-                    <button class="btn btn-large btn-primary" type="button" onClick="fetchInputs();"
-                    data-toggle="modal" href="#myModal">Generate Signature</button>
+                    <input class="btn btn-large btn-primary" type="submit" value="Generate Signature" >
                 </p>
         </form>
+
         <!-- Modal -->
         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
         aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                 <h3 id="myModalLabel">Your Fancy Signature!</h3>
+                 <h3 id="myModalLabel">Your fancy new signature!</h3>
 
             </div>
             <div class="modal-body">
                 <div id="output">
-                    <p>
-                        <h4>WYSIWYG (Gmail):</h4>
-                        <div class="fake-textarea" id="outputPreview" contenteditable="true" onClick="selectText('outputPreview')"></div>
-                        <div><button id="outputPreviewCopy" type="button" class="btn">Copy</button></div>
-                    </p>
-                    <p>
-                        <h4>Text (iPhone):</h4>
-                        <textarea id="outputFieldText" name="outputFieldText" rows="10" cols="80" onClick="javascript:this.form.outputFieldText.focus();this.form.outputFieldText.select();">
+                    <div class="output-section">
+                        <h4>Rich Text (Gmail):</h4>
+                        <div class="fake-textarea" id="outputPreview" contenteditable="true"></div>
+                        <div><a id="outputPreview-btn" type="button" class="btn">Copy</a> <span id="outputPreview-confirm" class="confirm">Copied!</span></div>
+                    </div>
+                    <div class="output-section">
+                        <h4>Text (iPhone, Android, BB, etc.):</h4>
+                        <textarea id="outputFieldText" name="outputFieldText" rows="3" cols="80">
                         </textarea>
-                        <div><button id="outputFieldTextCopy" type="button" class="btn">Copy</button></div>
-                    </p>
-                    <p>
-                        <h4>HTML (Thunderbird, Mail, etc.)</h4>
-                        <textarea id="outputFieldHTML" name="outputFieldHTML" rows="10" cols="80" onClick="javascript:this.form.outputFieldHTML.focus();this.form.outputFieldHTML.select();">
+                        <div><a id="outputFieldText-btn" type="button" class="btn">Copy</a> <span id="outputFieldText-confirm" class="confirm">Copied!</span></div>
+                    </div>
+                    <div class="output-section">
+                        <h4>Raw HTML (Thunderbird, Sparrow, etc.)</h4>
+                        <textarea id="outputFieldHTML" name="outputFieldHTML" rows="3" cols="80">
                         </textarea>
-                        <div><button id="outputFieldHTMLCopy" type="button" class="btn">Copy</button></div>
-                    </p>
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            </div>
+                        <div><a id="outputFieldHTML-btn" type="button" class="btn">Copy</a> <span id="outputFieldHTML-confirm" class="confirm">Copied!</span></div>
+                    </div>
+                </div>
+            </div>    
         </div> 
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
@@ -123,9 +114,6 @@
         <script type="text/javascript" src="js/vendor/jquery.validate.js"></script>
         <script type="text/javascript" src="js/vendor/ZeroClipboard.js"></script>
         <script type="text/javascript" src="js/vendor/jquery.zclip.min.js"></script>
-        <script>
-            ZeroClipboard.setMoviePath( 'js/vendor/ZeroClipboard10.swf' );
-        </script>
 
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
