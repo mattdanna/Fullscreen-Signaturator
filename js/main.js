@@ -8,18 +8,13 @@ var address = "9336 Washington Blvd, Building K \n" +
     "Culver City, CA 90232 \n" +
     "(310) 202-3333";
 var companyName = "Fullscreen, Inc.";
-
-
-
+var logoURL = "http://gatech.careereco.net/files/2012/09/Fullscreen-Logo.png";
 
 
 
 $(document).ready(function () {
     // Mask input in form of: (___) ___-____
     $("#inputPhone").mask("(999) 999-9999");
-
-    ZeroClipboard.setMoviePath( 'js/vendor/ZeroClipboard.swf' );
-    
 
 
     // validate signup form on keyup and submit
@@ -52,24 +47,17 @@ $(document).ready(function () {
                 minlength: "Please include Fullscreen's Address."
             }
         }
-    }); */
+    }); 
+
+
+    $("#outputPreviewCopy").zclip({
+        path: 'ZeroClipboard.swf',
+        copy: function () {
+            return $("#outputPreview").val();
+            alert("Copied!");
+        }
+    });*/
 });
-
-// $("a#outputPreviewCopy").on("click", this, function(event){
-//     event.preventDefault();
-    
-//     $(this).zclip({
-//         path: 'js/vendor/ZeroClipboard10.swf',
-//         copy: function(){
-//             return $('#outputFieldText').val()
-//         },
-//         afterCopy: function(){
-//             console.log('copied!')
-//         }
-//     });
-
-// });
-
 
 function fetchInputs() {
     name = $('#inputName').val();
@@ -81,33 +69,11 @@ function fetchInputs() {
 
     generateHTMLOutput();
     generateTextOutput();
-    zeroclip();
 }
 
-var zeroclip = function(){
-    
-    var clip = new ZeroClipboard.Client('#outputPreviewCopy');
-    clip.setHandCursor(true);
-    clip.on('load', function () {
-        console.log("Flash loaded");
-    });
-    
-    $('#outputPreviewCopy').on('click', this, function(){
-
-        clip.on('complete', function () {
-            console.log('help')
-            /*
-            var $copied = $('#outputFieldText').html();
-            console.log("Copied text to clipboard:" + $copied);
-            */
-            clip.destroy()
-        });
-        
-    })
-}
 function selectText(containerid) {
-  // var text = (containerid).firstChild.nodeValue;
-  // text.select();
+   var text = (containerid).firstChild.nodeValue;
+   text.select();
 }
 
 function generateHTMLOutput() {
@@ -132,16 +98,16 @@ function generateHTMLOutput() {
                      '</td>' +
                 '</tr>' +
                 '<tr>' +
-                    '<td style="color:rgb(10,10,10); font-size:11px;  letter-spacing:0px; text-transform:uppercase; padding:10px 0 5px 0px; border-bottom:1px solid rgb(10,10,10);"><b>' + name + '</b> &nbsp; <span style="letter-spacing:0px;font-size:11px;">' + position + '</span></td>' +
+                    '<td style="color:rgb(10,10,10); font-size:14px; padding:15px 0 3px 0px; border-bottom:1px solid rgb(10,10,10);"><b>' + name + '</b> &nbsp; <span style="letter-spacing:1px;font-size:10px;text-transform:uppercase;">' + position + '</span></td>' +
                 '</tr>' +
                 '<tr>' +
-                    '<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0; font-size:11px; font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; margin:10px 0 0 10px; color:rgb(40,40,40)">' +
+                    '<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0; font-size:12px; font-family: \'Helvetica Neue\', Helvetica, Arial, \'Lucida Grande\', sans-serif; margin:5px 0 0 10px; color:rgb(40,40,40)">' +
                         '<tr>' +
-                            '<td style="padding:0 10px 3px 0;">' + 
-                                '<a style="color:#398b96; text-decoration:none;" href="http://fullscreen.net">' + companyName + '</a>' + 
+                            '<td style="padding:0 15px 3px 0;">' +
+                                '<a style="color:#398b96; text-decoration:none;" href="http://fullscreen.net">Fullscreen, Inc.</a>' +
                             '</td>' +
-                            '<td style="padding:0 10px 3px 0;">' +
-                                phone +
+                            '<td style="padding:0 15px 3px 0;">' +
+                                '(310) 202-3333' +
                             '</td>' +
                         '</tr>' +
                         '<tr>' +
@@ -149,11 +115,11 @@ function generateHTMLOutput() {
                                 '@<a style="color:#398b96; text-decoration:none;" href="http://twitter.com/' + twitter + '">' + twitter + '</a>' +
                             '</td>' +
                             '<td style="padding:0 15px 3px 0;">' +
-                                'YouTube: <a style="color:#398b96; text-decoration:none;" href="http://youtube.com/user/' + youtube + '">' + youtube + '</a>' + 
+                                'YouTube: <a style="color:#398b96; text-decoration:none;" href="http://youtube.com/user/' + youtube + '">' + youtube + '</a>' +
                             '</td>' +
                         '</tr>' +
-                    '</table>' + 
-                '</tr>' +
+                    '</table>' +
+                '</tr>' +            
             '</table>';
 
     document.getElementById("outputFieldHTML").value = hOutput;
